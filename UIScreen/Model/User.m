@@ -9,7 +9,7 @@
 #import "User.h"
 
 @implementation User
-
+//my cmt
 @synthesize uid;
 @synthesize name;
 @synthesize email;
