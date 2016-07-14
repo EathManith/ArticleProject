@@ -19,7 +19,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     // Set the Label text with the selected recipe
-    tblLabel.text = tblName;
+    tblLabel.text =tblName;
 }
 
 

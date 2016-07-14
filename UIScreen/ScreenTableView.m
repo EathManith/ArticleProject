@@ -8,6 +8,7 @@
 
 #import "ScreenTableView.h"
 #import "CustomCell.h"
+#import "ScreenTableViewControllerDetail.h"
 
 @implementation ScreenTableView{
     NSArray * nameList;
@@ -18,12 +19,15 @@
 
 -(void)viewDidLoad{
     nameList = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-    
+    _tvController.delegate=self;
+    _tvController.dataSource=self;
     // Create a list to hold search results (filtered list)
     self.filteredItems = [[NSMutableArray alloc] init];
     // Initially display the full list.  This variable will toggle between the full and the filtered lists.
     self.displayedItems = nameList;
     [self prepareSearchController];
+    //[self prepareForSegue:@"showTableViewDetail" sender:nameList];
+    NSLog(@"abbb");
     
 }
 
@@ -86,16 +90,21 @@
     }
     [self.tableView reloadData];
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  
+//    [self performSegueWithIdentifier:@"showTableViewDetail" sender:[nameList objectAtIndex:indexPath.row]];
+   
+}
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"showTableViewDetail"]) {
-//        NSIndexPath *indexPath = [self.tvController indexPathForSelectedRow];
-//        
-//                RecipeDetailViewController *destViewController = segue.destinationViewController;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showTableViewDetail"]) {
+        NSIndexPath *indexPath = [self.tvController indexPathForSelectedRow];
+        
+//                Scr *destViewController = segue.destinationViewController;
 //        
 //                destViewController.recipeName = [recipes objectAtIndex:indexPath.row];
-//            }
-//}
+            }
+}
 
 
 @end

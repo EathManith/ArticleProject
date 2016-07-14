@@ -267,17 +267,7 @@ NSDictionary *fb_data;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     ProfileViewController *vc = [segue destinationViewController];
- 
-//get data from facebook api
-    
-//    User * u = [User new];
-//    u.uid = 5;
-//    u.name = [sender valueForKey:@"name"];
-//    u.email = [sender valueForKey:@"email"];
-//    u.urlProfile = [[[sender valueForKey:@"picture"] valueForKey:@"data"] valueForKey:@"url"];
-////    NSLog(@"%@", u.urlProfile);
-//    vc.user = u;
-    
+     
     User * u = sender;
     u.uid = u.uid;
     u.name = u.name;
